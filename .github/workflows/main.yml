@@ -30,3 +30,4 @@ jobs:
         run: aws-action/cloudfront@v1.3 
         env: 
            distribution: ${{ secrets.DISTRIBUTION }}
+           paths: '/*'
