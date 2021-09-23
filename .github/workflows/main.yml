@@ -19,10 +19,14 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-          folder: build
-          dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          invalidation: / *
-        
+          
+      - name: Configure AWS Cloudfront
+        uses: aws-actions/configure-aws-cloudfront@v1
+       
+        with:
+           folder: build
+           dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+           invalidation: / *
  
       - name: Build React App
         run: npm install && npm run build
