@@ -27,5 +27,5 @@ jobs:
         run: aws s3 sync ./build/ s3://rushikeshreactappdemo
         
       - name: Cloudfront
-        uses:  aws-actions/reactappwithcloudfront@v1
+        run: aws-action/cloudfront@v1  
         env: ${{ secrets.DISTRIBUTION }}
