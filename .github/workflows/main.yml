@@ -28,7 +28,4 @@ jobs:
         
       - name: cloudfront
         uses: aws-actions/Deploy cloudfront@v1
-		      env: ${{ secrets.DISTRIBUTION }}
-		    
-	     
-		   
+        env: ${{ secrets.DISTRIBUTION }}
