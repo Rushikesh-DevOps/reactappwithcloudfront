@@ -19,10 +19,16 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-          distribution: ${{ secrets.DISTRIBUTION }}
- 
+
       - name: Build React App
         run: npm install && npm run build
  
       - name: Deploy app build to S3 bucket
         run: aws s3 sync ./build/ s3://rushikeshreactappdemo
+        
+      - name: cloudfront
+        uses: aws-actions/Deploy cloudfront@v1
+		      env: ${{ secrets.DISTRIBUTION }}
+		    
+	     
+		   
