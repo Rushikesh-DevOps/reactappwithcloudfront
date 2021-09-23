@@ -21,7 +21,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           
       - name: Configure AWS Cloudfront
-        uses: aws-actions/configure-aws-cloudfront@v1
+        uses: aws-actions/configure-aws-cloudfront@v2
        
         with:
            folder: build
