@@ -28,4 +28,5 @@ jobs:
         
       - name: Cloudfront
         run: aws-action/cloudfront@v1  
-        env: ${{ secrets.DISTRIBUTION }}
+        env: 
+           distribution: ${{ secrets.DISTRIBUTION }}
